@@ -71,12 +71,12 @@ function playGame() {
             }
         }
     }
-
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
+    playRound(humanSelection, computerSelection);
+    // for (let i = 0; i < 5; i++) {
+    //     const humanSelection = getHumanChoice();
+    //     const computerSelection = getComputerChoice();
+    //     playRound(humanSelection, computerSelection);
+    // }
 
     if (computerScore > humanScore) {
         console.log("Computer wins more!");

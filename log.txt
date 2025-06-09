@@ -1,0 +1,2 @@
+9/6
+so the plan is first create UI for Rock paper scissors game then I will use flex box to align the UI,.
