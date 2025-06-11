@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+}
+
+body {
+    background-color:rgba(105, 118, 105, 0.326);
+}
+
+h1 {
+    margin: 6rem;
+}
+
+.userChoice {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+    background-color:rgb(118, 232, 255);
+}
+
+button {
+    width: 200px; /* Set the width of the button */
+    height: 100px; /* Set the height of the button */
+    font-size: 30px; /* Adjust the font size */
+    padding: 10px; /* Add padding inside the button */
+    border-radius: 10px; /*  Add rounded corners */
+    border: 2px solid #ccc; /* Add a border */
+    background-color: #f0f0f0; /* Set the background color */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Add a hover effect */
+}
+
+button:hover {
+    background-color: #ddd; /* Change background color on hover */
+}
