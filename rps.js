@@ -1,6 +1,8 @@
 console.log("Hello World");
 
 
+let humanScore = 0;
+let computerScore = 0;
 
 function getRandom3() {
     return Math.floor((Math.random() * 3))
@@ -24,31 +26,6 @@ function getHumanChoice() {
     return userChoice.toLowerCase();
 }
 
-function playGame() {
-    // Declare the player score var
-
-    
-    // playRound(humanSelection, computerSelection);
-    // for (let i = 0; i < 5; i++) {
-    //     const humanSelection = getHumanChoice();
-    //     const computerSelection = getComputerChoice();
-    //     playRound(humanSelection, computerSelection);
-    // }
-
-    if (computerScore > humanScore) {
-        console.log("Computer wins more!");
-        console.log("Computer Score: " + computerScore);
-        console.log("Human Score: " + humanScore);
-    } else if (computerScore < humanScore) {
-        console.log("Human wins more!");
-        console.log("Computer Score: " + computerScore);
-        console.log("Human Score: " + humanScore);
-
-    } else 
-    {
-        console.log("Draw");
-    }
-}
 // logic to display results in the DOM
 function displayResult(message) {
     const resultDiv = document.querySelector("#result");
@@ -57,10 +34,34 @@ function displayResult(message) {
     // resultDiv.appendChild(resultMsg); 
     resultDiv.textContent = message;
 }
+
+// logic to update the scores in DOM
+function updateScores() {
+    document.querySelector("#humanScore").textContent = `Human: ${humanScore}`;
+    document.querySelector("#compScore").textContent = `Computer: ${computerScore}`;
+}
+
+// logic to check the game is over
+function checkGameOver() {
+    if (humanScore === 5) {
+        displayResult("You win the game!");
+        resetGame();
+    }
+    else if (computerScore === 5) {
+        displayResult("Computer wins the game!");
+        resetGame();
+    }
+}
+
+// logic to reset the game if needed
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    updateScores();
+}
+
 // logic to play a single round
 function playRound(humanChoice, computerChoice) {
-    let humanScore = 0;
-    let computerScore = 0;
     if (humanChoice == "rock") {
         if (computerChoice == "rock") {
             displayResult("Draw: Both chose rock");
@@ -94,6 +95,9 @@ function playRound(humanChoice, computerChoice) {
             displayResult("Draw: Both chose scissors");
         }
     }
+
+    updateScores();
+    checkGameOver();
 }
 
 
