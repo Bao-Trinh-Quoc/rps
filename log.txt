@@ -1,3 +1,5 @@
 9/6
 so the plan is first create UI for Rock paper scissors game then I will use flex box to align the UI,.
 step 1 is complete. I finished the UI logic for the game.
+11/6
+welp, actually pretty easy tho. finished it in just one sit.

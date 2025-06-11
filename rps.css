@@ -34,3 +34,8 @@ button {
 button:hover {
     background-color: #ddd; /* Change background color on hover */
 }
+
+#choices, #result, #humanScore, #compScore {
+    font-size: 2rem;
+    margin: 1rem;
+}

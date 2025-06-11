@@ -41,6 +41,10 @@ function updateScores() {
     document.querySelector("#compScore").textContent = `Computer: ${computerScore}`;
 }
 
+function updateChoices(humanChoice, computerChoice) {
+    document.querySelector("#humanChoice").textContent = humanChoice;
+    document.querySelector("#computerChoice").textContent = computerChoice;
+}
 // logic to check the game is over
 function checkGameOver() {
     if (humanScore === 5) {
@@ -62,6 +66,8 @@ function resetGame() {
 
 // logic to play a single round
 function playRound(humanChoice, computerChoice) {
+    updateChoices(humanChoice, computerChoice);
+
     if (humanChoice == "rock") {
         if (computerChoice == "rock") {
             displayResult("Draw: Both chose rock");
