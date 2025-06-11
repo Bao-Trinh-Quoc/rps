@@ -2,8 +2,6 @@ console.log("Hello World");
 
 
 
-
-
 function getRandom3() {
     return Math.floor((Math.random() * 3))
 }
@@ -28,8 +26,7 @@ function getHumanChoice() {
 
 function playGame() {
     // Declare the player score var
-    let humanScore = 0;
-    let computerScore = 0;
+
     
     // playRound(humanSelection, computerSelection);
     // for (let i = 0; i < 5; i++) {
@@ -52,40 +49,49 @@ function playGame() {
         console.log("Draw");
     }
 }
-
+// logic to display results in the DOM
+function displayResult(message) {
+    const resultDiv = document.querySelector("#result");
+    // const resultMsg = document.createElement("p");
+    // resultMsg.textContent = message;
+    // resultDiv.appendChild(resultMsg); 
+    resultDiv.textContent = message;
+}
 // logic to play a single round
 function playRound(humanChoice, computerChoice) {
+    let humanScore = 0;
+    let computerScore = 0;
     if (humanChoice == "rock") {
         if (computerChoice == "rock") {
-            console.log("Draw rock");
+            displayResult("Draw: Both chose rock");
         } else if (computerChoice == "paper") {
-            console.log("rock < paper computer win");
+            displayResult("Computer wins: rock < paper");
             computerScore++;
         } else {
-            console.log("rock > scissors human win");
+            displayResult("You win: rock > scissors");
             humanScore++;
         }
     }
     else if (humanChoice == "paper") {
-        if (computerChoice == "rock") {
-            console.log("paper > rock human win");
-            humanScore++;
-        } else if (computerChoice == "paper") {
-            console.log("Draw paper");
-        } else {
-            console.log("paper < scissors computer win");
-            computerScore++;
+            if (computerChoice == "rock") {
+                displayResult("You win: paper > rock");
+                humanScore++;
+            } else if (computerChoice == "paper") {
+                displayResult("Draw: Both chose paper");
+            } else {
+                displayResult("Computer wins: paper < scissors");
+                computerScore++;
+            }
         }
-    }
     else {
         if (computerChoice == "rock") {
-            console.log("scissors < rock computer win");
+            displayResult("Computer wins: scissors < rock");
             computerScore++;
         } else if (computerChoice == "paper") {
-            console.log("scissors > paper human win");
+            displayResult("You win: scissors > paper");
             humanScore++;
         } else {
-            console.log("Draw scissors");
+            displayResult("Draw: Both chose scissors");
         }
     }
 }
